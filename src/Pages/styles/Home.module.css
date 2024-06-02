@@ -1,0 +1,91 @@
+.Section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 120px;
+}
+.TopSection {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.TopItem {
+    padding: 20px;
+    box-shadow: 1px 1px 5px 1px #ddd;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.About { flex-direction: row; }
+.AboutIllustration {
+    width: 40%;
+    background-color: #ddd;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.AboutContent {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.SectionTitle {
+    font-size: 28px;
+    font-weight: 700;
+}
+.AboutDescription {
+    font-size: 16px;
+    line-height: 30px;
+    color: #555;
+}
+
+.FeatureContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.FeatureItem {
+    background-color: #f6f7fa;
+    color: #8492a6;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 30%;
+    padding: 40px;
+    position: relative;
+    transition: 0.4s;
+    border-radius: 12px;
+}
+.FeatureTitle {
+    font-size: 22px;
+    color: #545f6e;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.FeatureDescription { font-size: 14px; }
+.FeatureIcon {
+    font-size: 60px;
+    color: #eb3c7f;
+}
+.FeatureItem:hover {
+    background-color: #eb3c7f;
+    color: #fff;
+}
+.FeatureItem:hover .FeatureTitle { color: #fff; }
+.FeatureItem:hover .FeatureIcon {
+    color: rgb(255, 185, 206);
+}
+
+.Bold {
+    font-weight: 800;
+}
+
+@media (max-width: 480px) {
+    .Section,.About {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    .FeatureContainer {
+        flex-direction: column;
+    }
+}

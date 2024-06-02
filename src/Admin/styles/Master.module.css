@@ -1,0 +1,10 @@
+.UserPhoto {
+    height: 50px;
+    width: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

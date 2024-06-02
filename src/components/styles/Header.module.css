@@ -1,0 +1,115 @@
+.Header {
+    position: fixed;
+    top: 0px;left: 0px;right: 0px;
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 1px 1px 5px 1px #ddd;
+    padding: 0px 120px;
+    z-index: 3;
+}
+.LogoArea {
+    width: 350px;
+}
+.Logo {
+    height: 40px;
+    margin: 0px;
+}
+
+.Menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+    transition: 0.4s;
+}
+.MenuItem {
+    text-decoration: none;
+    color: #212121;
+    display: flex;
+    gap: 10px;
+    padding: 20px 20px;
+    font-size: 16px;
+}
+.MenuItemActive, .MenuItemActive ul .SubMenuItemActive {
+    color: #eb3c7f;
+    font-weight: 900;
+}
+.MenuItemActive ul .MenuItem {
+    font-weight: 400;
+}
+
+.Menu ul {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 12px;
+    top: -662px;
+    margin-left: -20px;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 5px 1px #ddd;
+}
+.Menu ul .MenuItem {
+    padding: 10px 20px;
+    color: #555;
+    font-size: 14px;
+}
+.MenuItem:focus ul,
+.MenuItem:hover ul {
+    top: 50px;
+}
+.Menu ul .MenuItem:hover {
+    color: #eb3c7f;
+}
+.MenuToggler {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .MenuToggler {
+        display: flex;
+        height: 40px;
+        aspect-ratio: 1;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 24px;
+    }
+    .Header {
+        padding: 0px 20px;
+    }
+    .Menu {
+        position: fixed;
+        top: 80px;left: 0px;right: 0px;bottom: 0px;
+        left: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 40px;
+        background-color: #fff;
+    }
+    .MenuActive {
+        left: 0%;
+    }
+    .MenuItem {
+        flex-wrap: wrap;
+        /* flex-grow: 1; */
+        width: 90%;
+    }
+    .Menu ul {
+        position: static;
+        flex-grow: 1;
+        width: 100%;
+        margin: 0px;
+        display: none;
+    }
+    .MenuItem:hover ul,
+    .MenuItem:focus ul {
+        display: flex;
+    }
+}

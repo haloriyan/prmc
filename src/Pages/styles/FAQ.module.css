@@ -1,0 +1,20 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Question {
+    background-color: #f6f7fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+.QuestionActive {
+    color: #eb3c7f;
+}
+.Answer {
+    padding: 20px;
+}

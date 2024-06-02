@@ -1,0 +1,33 @@
+.Media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #ddd;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.Container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.Item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 19%;
+    text-decoration: none;
+    color: #212121;
+}
+.Title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .Container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

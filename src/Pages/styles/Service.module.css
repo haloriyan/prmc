@@ -1,0 +1,42 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+.Item {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.Cover {
+    width: 30%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: #eee;
+}
+.Content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.Title {
+    font-size: 24px;
+}
+.Description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 480px) {
+    .Item {
+        flex-direction: column;
+    }
+    .Cover {
+        width: 100%;
+    }
+}
