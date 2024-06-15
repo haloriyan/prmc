@@ -18,3 +18,9 @@
     padding: 20px;
     margin: auto;
 }
+
+@media (max-width: 480px) {
+    .modal_body {
+        width: 95% !important;
+    }
+}
