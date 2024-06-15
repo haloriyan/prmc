@@ -11,6 +11,7 @@ import CampaignViews from "./Ad/Views";
 import CampaignClicks from "./Ad/Clicks";
 import Announcement from "./Master/Announcement";
 import LiveCode from "./Content/LiveCode";
+import TrainingCenter from "./Content/TrainingCenter";
 
 const AdminRouter = () => {
     return (
@@ -23,6 +24,7 @@ const AdminRouter = () => {
             <Route path="/admin/master/hometag" element={<AdminMiddleware><Tag /></AdminMiddleware>} />
 
             <Route path="/admin/content/report" element={<AdminMiddleware><ContentReport /></AdminMiddleware>} />
+            <Route path="/admin/content/training-center" element={<AdminMiddleware><TrainingCenter /></AdminMiddleware>} />
             <Route path="/admin/content/live-code" element={<AdminMiddleware><LiveCode /></AdminMiddleware>} />
 
             <Route path="/admin/ad/campaign" element={<AdminMiddleware><Campaign /></AdminMiddleware>} />

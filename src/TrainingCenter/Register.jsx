@@ -14,11 +14,11 @@ import config from "../config";
 const TCRegister = () => {
     const [countries, setCountries] = useState([]);
     const [icon, setIcon] = useState(null);
-    const [name, setName] = useState('Raya Digitalisasi Indonesia');
-    const [description, setDescription] = useState('Lorem ipsum dulu aja');
-    const [email, setEmail] = useState('halo@gmail.com');
-    const [phone, setPhone] = useState('+6285159772902');
-    const [website, setWebsite] = useState('https://dailyhotels.id');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [website, setWebsite] = useState('');
     const [country, setCountry] = useState('');
     const [address, setAddress] = useState('');
     const [isDone, setDone] = useState(false);
@@ -160,7 +160,7 @@ const TCRegister = () => {
                             <Input label="Training Center Name" value={name} onInput={e => setName(e.currentTarget.value)} />
                             <Input label="Email" value={email} onInput={e => setEmail(e.currentTarget.value)} />
                             <Input label="Description" value={description} onInput={e => setDescription(e.currentTarget.value)} multiline />
-                            <Input label="Phone Number" value={phone} onInput={e => setPhone(e.currentTarget.value)} />
+                            <Input label="Phone Number" value={phone} onInput={e => setPhone(e.currentTarget.value)} placeholder={'With country code. e.g : +62xxx'} />
                             <Input label="Website URL" value={website} onInput={e => setWebsite(e.currentTarget.value)} />
                             <div style={{fontSize: 13,color: '#777'}}>Country</div>
                             <Select options={countries} onChange={e => setCountry(JSON.parse(e.value))} />
