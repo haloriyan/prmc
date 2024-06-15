@@ -1,0 +1,57 @@
+body {
+    background-color: #eb3c7f20;
+}
+.container {
+    position: absolute;
+    top: 20px;left: 0px;right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.inner_container {
+    max-width: 45%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.section {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border-top: 6px solid #eb3c7f;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.SectionTitle {
+    font-size: 24px;
+    font-weight: 800;
+    color: #333;
+}
+.SectionDescription {
+    font-size: 16px;
+    color: #555;
+}
+
+.ProgramItem {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.ProgramImage {
+    height: 46px;
+    width: 46px;
+    border-radius: 8px;
+    background-color: #eee;
+}
+
+@media (max-width: 480px) {
+    .inner_container {
+        width: 95%;
+        max-width: 95%;
+    }
+    .section { padding: 20px; }
+}

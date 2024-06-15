@@ -26,7 +26,7 @@ const getExtension = (name) => {
 
 const imageExtensions = ['png','jpg','bmp','gif','jpeg'];
 
-const InputFile = ({aspectRatio = '1/1', type = 'image', size = '80px', iconSize = '30%', label = 'Pilih Berkas...', labelStyle, align = 'left', autoClear = false, onChange, width = null, height = null, style}) => {
+const InputFile = ({aspectRatio = '1/1', type = 'image', size = '80px', iconSize = '30%', label = 'Pilih Berkas...', labelStyle, align = 'left', autoClear = false, onChange, width = null, height = null, style, required = false}) => {
     const thisRef = useRef(null);
     const prevArea = useRef(null);
     const [result, setResult] = useState(null);
@@ -85,7 +85,7 @@ const InputFile = ({aspectRatio = '1/1', type = 'image', size = '80px', iconSize
                     <div style={labelStyle}>{label}</div>
                 }
             </div>
-            <input type="file" ref={thisRef} className={styles.Input} style={defaultStyle} onChange={e => {
+            <input type="file" ref={thisRef} required={required} className={styles.Input} style={defaultStyle} onChange={e => {
                 onChange(thisRef.current, e);
                 let file = thisRef.current.files[0];
 
