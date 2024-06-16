@@ -35,6 +35,10 @@ const MenuAdmin = ({active}) => {
                         <BiGroup />
                         <div className={styles.MenuText}>Pengumuman</div>
                     </Link>
+                    <Link to="/admin/master/stream" className={`${styles.MenuItem} ${active === 'stream' ? styles.MenuActive : ''}`}>
+                        <BiGroup />
+                        <div className={styles.MenuText}>Stream Data</div>
+                    </Link>
 
                     <div style={{color: '#999',fontSize: 14,fontWeight: 600,margin: '20px 0px 10px 0px'}}>
                         Manajemen Konten

@@ -12,6 +12,7 @@ import CampaignClicks from "./Ad/Clicks";
 import Announcement from "./Master/Announcement";
 import LiveCode from "./Content/LiveCode";
 import TrainingCenter from "./Content/TrainingCenter";
+import Stream from "./Master/Stream";
 
 const AdminRouter = () => {
     return (
@@ -22,6 +23,7 @@ const AdminRouter = () => {
             <Route path="/admin/master/user" element={<AdminMiddleware><User /></AdminMiddleware>} />
             <Route path="/admin/master/announcement" element={<AdminMiddleware><Announcement /></AdminMiddleware>} />
             <Route path="/admin/master/hometag" element={<AdminMiddleware><Tag /></AdminMiddleware>} />
+            <Route path="/admin/master/stream" element={<AdminMiddleware><Stream /></AdminMiddleware>} />
 
             <Route path="/admin/content/report" element={<AdminMiddleware><ContentReport /></AdminMiddleware>} />
             <Route path="/admin/content/training-center" element={<AdminMiddleware><TrainingCenter /></AdminMiddleware>} />

@@ -9,6 +9,7 @@ import Privacy from "./Privacy";
 import Terms from "./Terms";
 import ReturnPolicy from "./Return";
 import DeleteAccount from "./DeleteAccount";
+import Share from "./Share";
 
 const PageRouter = () => {
     return (
@@ -23,6 +24,7 @@ const PageRouter = () => {
             <Route path="/faq" Component={FAQ} />
             <Route path="/news" Component={News} />
             <Route path="/contact" Component={Contact} />
+            <Route path="/share/:id" Component={Share} />
         </Routes>
     )
 }
