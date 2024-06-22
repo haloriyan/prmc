@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import React, { useState } from "react";
+import Header from "../Partials/Header";
+import Footer from "../Partials/Footer";
 import Jumbo from "../components/Jumbo";
-import styles from "./styles/Home.module.css";
-import Input from "../components/Input";
 import Button from "../components/Button";
-import axios from "axios";
-import config from "../config";
-import Footer from "../components/Footer";
+import Input from "../components/Input";
 
 const DeleteAccount = () => {
+    const [done, setDone] = useState(false);
     const [email, setEmail] = useState('');
     const [reason, setReason] = useState('');
-    const [done, setDone] = useState(false);
-
-    useEffect(() => {
-        document.title = "Penghapusan Akun - Promociin";
-    }, []);
-
+    
     const submit = (e) => {
         // axios.post(`${config.baseUrl}/api/user/request-deletion`, {
         //     email, reason
@@ -31,34 +24,35 @@ const DeleteAccount = () => {
 
     return (
         <>
-            <Header active="" />
-            <div className="content">
+            <Header />
+            <div className="absolute top-20 left-0 right-0">
                 <Jumbo
-                    withNavigation={true} breadcrumb={'Tentang'}
+                    withNavigation={true} breadcrumb={'Delete Account'}
                     background="/shipping.jpg"
                     title={
                         <>
-                            <div>Penghapusan Akun</div>
+                            <div>Account Deletion</div>
                         </>
                     }
                 />
+
                 {
                     done ?
-                    <div className={styles.Section}>
-                        <div>Permintaan penghapusan akun Anda telah kami terima. Akun Anda akan kami bantu hapus dalam waktu maksimal 1 x 24 jam.</div>
-                    </div>
+                    <section className="mobile:p-8 p-20">
+                        <div>Your account deletion request has been received. We will assist in deleting your account within a maximum of 1 x 24 hours.</div>
+                    </section>
                     :
-                    <div className={styles.Section}>
-                        <div style={{fontSize: 14,color: '#8492a6',textAlign: 'center'}}>Mohon isi formulir berikut untuk mengirimkan permintaan penghapusan akun</div>
+                    <section className="mobile:p-8 p-20">
+                        <div className="text-center">Please fill out the following form to submit an account deletion request.</div>
                         <form action="#" onSubmit={submit}>
-                            <Input label="Email Akun :" placeholder={'Alamat email yang digunakan pada akun Anda'} onInput={e => setEmail(e.currentTarget.value)} />
-                            <Input label="Alasan Penghapusan :" placeholder={'Mohon beri tahu kami alasan Anda ingin menghapus akun promociin'} onInput={e => setReason(e.currentTarget.value)} />
-                            <Button>Kirim Permintaan</Button>
+                            <Input label="Account Email :" placeholder={'Email address used for your account'} onInput={e => setEmail(e.currentTarget.value)} />
+                            <Input label="Reason for Deletion :" placeholder={'Please tell us why you want to delete your Promociin account'} onInput={e => setReason(e.currentTarget.value)} />
+                            <Button>Submit Request</Button>
                         </form>
-                    </div>
+                    </section>
                 }
-                
-                <Footer />
+
+                <Footer /> 
             </div>
         </>
     )

@@ -1,0 +1,24 @@
+.Container {
+    position: relative;
+    overflow: hidden;
+}
+.Container::before {
+    content: 'aaaaaaaaaaaaaa';
+    position: absolute;
+    top: -60px;left: 0px;
+    color: transparent;
+    font-size: 4em;
+    text-decoration-style: wavy;
+    text-decoration-color: #eb3c7f;
+    text-decoration-line: underline;
+    animation: animate 1.3s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(-1px);
+    }
+    100% {
+        transform: translateX(-33px);
+    }
+}

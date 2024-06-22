@@ -1,0 +1,13 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.Row {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+.Dot {
+    border-radius: 99px;
+}
