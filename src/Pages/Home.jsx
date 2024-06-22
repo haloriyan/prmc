@@ -65,7 +65,7 @@ const Home = () => {
         <>
             <Header />
             <div className="absolute top-20 left-0 right-0">
-                <div className="flex mobile:flex-col mobile:flex-col-reverse items-center gap-10 p-20 mobile:p-8 relative">
+                <div className="flex mobile:flex-col items-center gap-10 mobile:gap-2 p-20 mobile:p-8 relative">
                     <img src="/images/header-shape-1.svg" alt="headshape" className="absolute top-0 right-0 mobile:hidden" />
                     <BeatingCircle pos={window.screen.width < 480 ? {x: 0, y: 0} : {x: 300, y: 121}} color="bg-purple-200" />
                     <BeatingCircle pos={window.screen.width < 480 ? {x: 0, y: 0} : {x: 480, y: 590}} color="bg-blue-200" />
@@ -73,7 +73,7 @@ const Home = () => {
                         <h2 className="mb-4 text-primary">Promociin - Show Your Skill</h2>
                         <h2 className="font-black text-4xl mobile:text-2xl">UPLOAD YOUR SKILLS. SHARE YOUR COMPETENCE.</h2>
                         <div className="mt-8 text-slate-600 text-lg mobile:text-sm mobile:leading-7">
-                        Promociin.com is a short-video sharing app to promote your skills and competence, creativity, business, and product value with a new stunning way. The new level of social media. Let your skills speak for themselves on videos.
+                            Promociin.com is a short-video sharing app to promote your skills and competence, creativity, business, and product value with a new stunning way. The new level of social media. Let your skills speak for themselves on videos.
                         </div>
                         <div className="flex mt-8">
                             <a href={gPlayLink} target="_blank" className="p-4 px-8 rounded bg-primary text-white text-sm font-bold flex items-center gap-4">
@@ -81,8 +81,10 @@ const Home = () => {
                                 DOWNLOAD
                             </a>
                         </div>
+
+                        <div className="text-primary mt-6">A New Way to Apply Jobs</div>
                     </div>
-                    <div className="flex flex-col grow justify-center items-center">
+                    <div className="flex flex-col grow justify-center items-center mobile:mt-10 mobile:w-full">
                         <Screenshot src={'/images/HOME.PNG'} />
                     </div>
                 </div>

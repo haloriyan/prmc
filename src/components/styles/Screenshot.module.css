@@ -21,3 +21,10 @@
     border-radius: 38px;
     margin-bottom: 40px;
 }
+
+@media (max-width: 480px) {
+    .image {
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+}
