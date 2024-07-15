@@ -1,7 +1,7 @@
 import config from "../config";
 import styles from "./styles/Input.module.css";
 
-const Input = ({label = 'Label', icon = null, height = 50, type = 'text', multiline = false, placeholder, onInput, required = true, value = null, style, right = null, exportStyles = false}) => {
+const Input = ({label = 'Label', icon = null, height = 50, type = 'text', multiline = false, placeholder, onInput, required = true, value = null, style, right = null, exportStyles = false, inputStyle}) => {
     if (exportStyles) {
         return {
             styles: styles,
@@ -25,7 +25,7 @@ const Input = ({label = 'Label', icon = null, height = 50, type = 'text', multil
                         multiline ?
                             <textarea placeholder={placeholder} style={{height: 120}} onInput={onInput} required={required} defaultValue={value}></textarea>
                         :
-                        <input type={type} style={{height: height}} placeholder={placeholder} onInput={onInput} required={required} value={value} />
+                        <input type={type} style={{height: height, ...inputStyle}} placeholder={placeholder} onInput={onInput} required={required} value={value} />
                     }
                     {
                         right !== null &&

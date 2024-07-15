@@ -1,0 +1,282 @@
+{
+    "general": {
+        "all": {"en": "All", "id": "Semua"},
+        "more": {"en": "More", "id": "Lainnya"},
+        "save_changes": {"en": "Save Changes","id": "Simpan Perubahan"},
+        "save_changes_process": {"en": "Saving...","id": "Menyimpan Perubahan..."},
+        "delete": {"en": "Delete","id": "Hapus"},
+        "deleting": {"en": "Deleting...","id": "Menghapus..."},
+        "add": {"en": "Add","id": "Tambahkan"},
+        "adding": {"en": "Adding...","id": "Menambahkan..."},
+        "edit": {"en": "Edit","id": "Ubah"},
+        "description": {"en": "Description","id": "Deskripsi"},
+        "cancel": {"en": "Cancel","id": "Batal"},
+        "no_data": {"en": "No data available","id": "Tidak ada data"},
+        "back": {"en": "back", "id": "kembali"},
+        "attachment": {"en": "Attachment", "id": "Lampiran"},
+        "image": {"en": "Image", "id": "Gambar"},
+        "file": {"en": "File", "id": "Berkas"},
+        "send": {"en": "Send", "id": "Kirim"},
+        "sending": {"en": "Sending...", "id": "Mengirim..."},
+        "certificate": {"en": "Certificate", "id": "Sertifikat"},
+        "preview": {"en": "Preview", "id": "Pratinjau"},
+        "account": {"en": "Account", "id": "Akun"},
+        "skip": {"en": "Skip", "id": "Lewati"},
+        "swipe": {"en": "Swipe", "id": "Usap"},
+        "to": {"en": "to", "id": "ke"},
+        "location": {"en": "Location", "id": "Lokasi"},
+        "address": {"en": "Address", "id": "Alamat"},
+        "price": {"en": "Price", "id": "Harga"},
+        "date": {"en": "Date", "id": "Tanggal"},
+        "contact": {"en": "Contact", "id": "Hubungi"},
+        "delete_confirmation": {
+            "en": "Are you sure willing to delete this?",
+            "id": "Yakin ingin menghapus ini?"
+        }
+    },
+    "login": {
+        "choose_language": {"en": "Choose Language","id": "Pilih Bahasa"},
+        "forget_password": {"en": "Forget Password?","id": "Lupa Password?"},
+        "show_password": {"en": "Show Password","id": "Lihat Password"},
+        "dont_have_account": {"en": "Don't have account?","id": "Belum punya akun?"},
+        "email_error": {"en": "Email address is required", "id": "Email harus diisi"},
+        "password_error": {"en": "Password is required", "id": "Password harus diisi"},
+        "status_404": {
+            "en": "We are unable to find your account. Make sure your email address already registered",
+            "id": "Kami tidak dapat menemukan akunmu. Pastikan emailmu sudah terdaftar"
+        },
+        "status_500": {
+            "en": "Email and password combination are incorrect",
+            "id": "Kombinasi email dan password tidak tepat"
+        }
+    },
+    "register": {
+        "en": "Register",
+        "id": "Daftar",
+        "processing": {
+            "en": "Submitting Data...", "id": "Memproses..."
+        },
+        "title": {
+            "en": "Create an Account",
+            "id": "Buat Akun"
+        },
+        "name": {
+            "en": "Name", "id": "Nama"
+        },
+        "already_have_account": {
+            "en": "Already have an account?",
+            "id": "Sudah punya akun?"
+        },
+        "status_500": {
+            "en": "Email address already used. Please use another email",
+            "id": "Email telah digunakan. Mohon gunakan alamat email yang lain"
+        }
+    },
+    "forget_password": {
+        "en": "Forget Password",
+        "id": "Lupa Password",
+        "intro": "Type your registered email address and we will send you OTP code to reset your password"
+    },
+    "reset_password": {
+        "en": "Reset Password",
+        "id": "Atur Ulang Password",
+        "save_new_password": { "en": "Save New Password", "id": "Simpan Password Baru"},
+        "resetting": { "en": "Resetting password...", "id": "Mengatur ulang password..."},
+        "create_new_password": { "en": "Create new password", "id": "Buat password baru"},
+        "retype_new_password": { "en": "Retype your new password", "id": "Ketik ulang password baru"}
+    },
+    "otp": {
+        "title": {"en": "OTP Verification", "id": "Verifikasi OTP"},
+        "description": {
+            "en": "We have sent 4 digits code OTP to your email. Please insert that code into these boxes",
+            "id": "Kami telah mengirim 4 digit kode OTP ke emailmu. Mohon masukkan kode tersebut pada bidang ini"
+        },
+        "processing": {"en": "Processing...", "id": "Memproses..."},
+        "not_receiving": {"en": "Not receiving the code?", "id": "Belum menerima kode?"},
+        "resend": { "en": "Resend", "id": "Kirim Ulang"},
+        "wait": { "en": "Wait", "id": "Tunggu"},
+        "second": { "en": "seconds", "id": "detik"}
+    },
+    "delete_account": {
+        "intro": {
+            "en": "Account deletion will erase all your data that we saved. You will no longer able to access and restore your deleted data",
+            "id": "Penghapusan akun akan menghapus semua data yang tersimpan. Anda tidak lagi dapat mengakses atau mengembalikan data yang telah terhapus."
+        },
+        "type_password": {
+            "en": "Type password for authorize this action",
+            "id": "Ketik password untuk memulai penghapusan akun"
+        },
+        "fully_aware": {
+            "en": "I am fully aware willing to delete all my data",
+            "id": "Saya dengan sadar ingin menghapus akun dan semua data yang ada"
+        }
+    },
+    "profile": {
+        "services": { "en": "Services", "id": "Layanan"},
+        "settings": { "en": "Settings", "id": "Pengaturan"},
+        "experience": { "en": "Experience", "id": "Pengalaman"},
+        "education": { "en": "Education", "id": "Pendidikan"},
+        "skills": { "en": "Skills", "id": "Keahlian"},
+        "certification": { "en": "Certification", "id": "Sertifikasi"},
+        "following": { "en": "Following", "id": "Mengikuti"},
+        "followers": { "en": "Followers", "id": "Pengikut"},
+        "follow": { "en": "Follow", "id": "Ikuti"},
+        "followed": { "en": "Followed", "id": "Diikuti"},
+        "likes": { "en": "Likes", "id": "Suka"},
+        "contents": { "en": "Contents", "id": "Konten"},
+
+        "app_lang": {"en": "App Language", "id": "Bahasa Aplikasi"},
+        "block_list": { "en": "Block List", "id": "Daftar Pemblokiran"},
+        "block_list_description": { "en": "Manage people you blocked", "id": "Atur pengguna yang kamu blokir"},
+        "account_deletion": { "en": "Account Deletion", "id": "Penghapusan Akun"},
+        "account_deletion_description": { "en": "Delete your account and datas", "id": "Hapus akun dan semua data"},
+
+        "add_experience": {"en": "Add Experience", "id": "Tambah Pengalaman"},
+        "position": {"en": "Position", "id": "Posisi"},
+        "company": {"en": "Company", "id": "Perusahaan"},
+
+        "applying_language": {"en": "Closing app to applying language...", "id": "Menutup aplikasi untuk menerapkan bahasa..."}
+    },
+    "certificate": {
+        "title": {"en": "Title", "id": "Judul"},
+        "publisher_organization": {"en": "Publisher Organization", "id": "Organisasi Penerbit"},
+        "certificate_url": {"en": "Certificate URL", "id": "URL Sertifikat"},
+        "published_date": {"en": "Published Date", "id": "Tanggal Diterbitkan"},
+        "expiry_date": {"en": "Expiration Date", "id": "Tanggal Kedaluwarsa"},
+        "link_with_skillset": {"en": "Link with skill set", "id": "Terkait dengan keahlian"}
+    },
+    "education": {
+        "add_new": {"en": "Add New Education Data", "id": "Tambah Data Pendidikan Baru"},
+        "major": {"en": "Major", "id": "Jurusan"},
+        "institution_name": {"en": "Institution Name", "id": "Nama Institusi"},
+        "level": {"en": "Level", "id": "Jenjang"}
+    },
+    "compose": {
+        "related_with": {"en": "Related with", "id": "Terkait dengan"},
+        "allow_comments": {"en": "Allow comments", "id": "Izinkan Komentar"},
+        "allow_sharing": {"en": "Allow sharing", "id": "Izinkan Berbagi"},
+        "publish": {"en": "Publish", "id": "Posting"},
+        "publishing": {"en": "Publishing...", "id": "Memposting..."},
+        "choose_video": {"en": "Pick Video", "id": "Pilih Video"},
+        "pick_file": {"en": "Choose File", "id": "Pilih Berkas"},
+        "choose": { "en": "Choose", "id": "Pilih"}
+    },
+    "gemini": {
+        "intro": {"en": "Ask everything you need to get ready for amazing experience", "id": "Tanya semua yang kamu butuhkan untuk mempersiapkan karirmu"},
+        "typing": {"en": "Typing...", "id": "Mengetik..."}
+    },
+    "job_fair": {
+        "intro": {"en": "Only available in Indonesia", "id": "Hanya tersedia di Indonesia"},
+        "warning": [
+            {"en": "Check again and ensure the credibility of the company you are applying to", "id": "Cek kembali dan pastikan kredibilitas perusahaan yang Anda lamar"},
+            {"en": "Be careful of any fraud or scam", "id": "Hati-hati terhadap penipuan"},
+            {"en": "The recruitment process should not cost money", "id": "Proses perekrutan seharusnya tidak memungut biaya"}
+        ]
+    },
+    "job_match": {
+        "intro": {"en": "Find people that can help grow your career", "id": "Temukan orang-orang yang bisa membantu karirmu bertumbuh"},
+        "thats_all": {"en": "That's all for now", "id": "Itu saja untuk sekarang"},
+        "change_filter": {"en": "Change Filter", "id": "Ubah Filter"},
+        "description": { "en": "or you can change your filters to see more awesome people", "id": "atau kamu bisa mengubah filter untuk melihat orang keren lainnya"},
+        "work_preference": {"en": "Work Preference", "id": "Preferensi Pekerjaan"},
+        "work_type": {"en": "Working Type", "id": "Tipe Pekerjaan"},
+        "industry_sector": {"en": "Industrial Sector", "id": "Sektor Industri"},
+        "apply_filters": {"en": "Apply Filters", "id": "Terapkan Filter"},
+        "per_month": {"en": "per month", "id": "per bulan"},
+        "salary": {"en": "Salary", "id": "Gaji"},
+        "apply": {"en": "Apply", "id": "Lamar"},
+        "applied": {"en": "Applied", "id": "Telah Melamar"},
+        "applicants": {"en": "Applicants", "id": "Pelamar"},
+        "job_vacancy": {"en": "Job Vacancy", "id": "Lowongan Pekerjaan"},
+        "active_until": {"en": "Receive application until", "id": "Terima lamaran hingga"},
+        "vacancy_delete_confirmation": {
+            "en": "Are you sure willing to delete this vacancy?",
+            "id": "Yakin ingin menghapus lowongan pekerjaan ini?"
+        }
+    },
+    "invitation": {
+        "accept": {"en": "Accept", "id": "Terima"},
+        "accepted": {"en": "Accepted", "id": "Diterima"},
+        "reject": {"en": "Reject", "id": "Tolak"},
+        "rejected": {"en": "Rejected", "id": "Ditolak"},
+        "no_answer": {"en": "No answer yet", "id": "Belum ada jawaban"},
+        "invite": {"en": "Invite to Interview", "id": "Undang Interview"},
+        "invited": {"en": "Invited", "id": "Diundang"},
+        "my_invitation": {"en": "My Invitation", "id": "Undangan Saya"},
+        "send_invitation_link": {"en": "Send Invitation Link", "id": "Kirim Link Undangan"},
+        "sending_link": {"en": "Sending link...", "id": "Mengirim link..."}
+    },
+    "live_auth": {
+        "intro": {"en": "Enter your authorization code before starting live stream", "id": "Masukkan kode otorisasi sebelum memulai live streaming"}
+    },
+    "intro": [
+        {
+            "index": 0,
+            "en": "Welcome",
+            "id": "Selamat Datang"
+        },
+        {
+            "index": 1,
+            "en": "The best application to improve your skills and develop your career",
+            "id": "Aplikasi terbaik untuk meningkatkan kemampuan dan mengembangkan karir Anda"
+        },
+        {
+            "index": 2,
+            "en": "This app designed for applying jobs in a new way. Show your skills and get contacted from various companies",
+            "id": "Aplikasi ini dirancang untuk melamar pekerjaan dengan cara baru. Tunjukkan keahlian Anda dan biarkan perusahaan menghubungi Anda"
+        },
+        {
+            "index": 3,
+            "en": "Various purposes. Live broadcast, interviews, training centers, sell services and more",
+            "id": "Berbagai fungsi. Siaran langsung, wawancara, pusat pelatihan, jual layanan dan lainnya"
+        },
+        {
+            "index": 4,
+            "en": "Connect professionals from all over the world",
+            "id": "Terhubung dengan para profesional dari seluruh dunia"
+        },
+        {
+            "index": 5,
+            "en": "Start your journey from here",
+            "id": "Mulai perjalanan Anda sekarang"
+        }
+    ],
+    "services": {
+        "package": {"en": "Service package", "id": "Paket Layanan"},
+        "template": {
+            "en": "Hi, I'm interesting with",
+            "id": "Halo, saya tertarik dengan"
+        },
+        "from": {"en": "on", "id": "dari"},
+        "find_in": {"en": "Find in", "id": "Temukan di"},
+        "all_location": {"en": "Indonesia", "id": "Indonesia"},
+        "region": {"en": "Region", "id": "Wilayah"},
+        "intro": {"en": "Find any services", "id": "Temukan jasa terpercaya"},
+        "warning": [
+            {"en": "Check again and ensure the credibility of provider you are looking for", "id": "Cek kembali dan pastikan kredibilitas penyedia layanan"},
+            {"en": "Be careful of any fraud or scam", "id": "Hati-hati terhadap penipuan"}
+        ],
+        "whatsapp_number": {"en": "WhatsApp Number", "id": "No. WhatsApp"}
+    },
+    "home": {
+        "last_content": [
+            {"en": "That's All, Folks!", "id": "Saat ini itu saja"},
+            {"en": "Your turn to upload your videos", "id": "Giliranmu untuk unggah video"},
+            {"en": "Upload Video", "id": "Unggah Video"}
+        ]
+    },
+    "video": {
+        "type_comment": {"en": "Type comment...", "id": "Ketik komentar..."}
+    },
+    "explore": {
+        "acccounts": {"en": "Accounts", "id": "Akun"},
+        "videos": {"en": "Videos", "id": "Video"},
+        "vacancy": {"en": "Vacancies", "id": "Lowongan"}
+    },
+    "inbox": {
+        "initial_message": {
+            "en": "Select conversation on the left side",
+            "id": "Pilih percakapan di sebelah kiri"
+        }
+    }
+}
