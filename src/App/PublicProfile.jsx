@@ -21,6 +21,7 @@ const PublicProfile = () => {
     const [viewing, setViewing] = useState('content');
     
     const [isFollowed, setFollowed] = useState(false);
+    const [isBlocked, setBlocked] = useState(false);
 
     useEffect(() => {
         if (user === null) {
@@ -44,6 +45,18 @@ const PublicProfile = () => {
             })
         }
     }, [isLoading, user]);
+
+    const blockUser = () => {
+        axios.post(`${config.baseUrl}/api/user/block`, {
+            blocked_id: profile.id,
+            token: user.token,
+        })
+        .then(response => {
+            let res = response.data;
+            console.log(res);
+            setBlocked(true);
+        })
+    }
 
     const follow = () => {
         axios.post(`${config.baseUrl}/api/user/${profile.username}/follow`, {
@@ -87,17 +100,22 @@ const PublicProfile = () => {
                         <div className="flex flex-col gap-2 mobile:gap-0">
                             <div className="text-3xl mobile:text-lg font-black text-slate-700">{profile.name}</div>
                             <div className="mobile:text-sm text-slate-500">@{profile.username}</div>
-                            {
-                                isFollowed ?
-                                <button className="p-2 px-8 bg-white border border-primary text-primary mt-4 mobile:text-sm flex gap-4 items-center" onClick={follow}>
-                                    <BiCheck />
-                                    Followed
+                            <div className="flex items-center gap-4">
+                                {
+                                    isFollowed ?
+                                    <button className="p-2 px-8 bg-white border border-primary text-primary mt-4 mobile:text-sm flex gap-4 items-center" onClick={follow}>
+                                        <BiCheck />
+                                        Followed
+                                    </button>
+                                    :
+                                    <button className="p-2 px-8 bg-primary text-white mt-4 mobile:text-sm" onClick={follow}>
+                                        Follow
+                                    </button>
+                                }
+                                <button className="p-2 px-8 bg-red-500 text-white mt-4" onClick={blockUser}>
+                                    Block
                                 </button>
-                                :
-                                <button className="p-2 px-8 bg-primary text-white mt-4 mobile:text-sm" onClick={follow}>
-                                    Follow
-                                </button>
-                            }
+                            </div>
                         </div>
                         <div className="flex items-center justify-end grow pe-8 mobile:pe-4 gap-4 mobile:gap-2">
                             {

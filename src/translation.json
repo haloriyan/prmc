@@ -2,8 +2,16 @@
     "general": {
         "all": {"en": "All", "id": "Semua"},
         "more": {"en": "More", "id": "Lainnya"},
+        "share": {"en": "Share", "id": "Bagikan"},
+        "copy": {"en": "Copy", "id": "Salin"},
+        "copied": {"en": "Copied", "id": "Disalin"},
+        "comment": {"en": "Comments", "id": "Komentar"},
         "save_changes": {"en": "Save Changes","id": "Simpan Perubahan"},
         "save_changes_process": {"en": "Saving...","id": "Menyimpan Perubahan..."},
+        "save_changes_success": {"en": "Changes Saved","id": "Berhasil Menyimpan Perubahan"},
+        "save_changes_failed": {"en": "Failed to Saving Changes","id": "Gagal Menyimpan Perubahan"},
+        "start_date": {"en": "Start Date", "id": "Tanggal Mulai"},
+        "end_date": {"en": "End Date", "id": "Tanggal Berakhir"},
         "delete": {"en": "Delete","id": "Hapus"},
         "deleting": {"en": "Deleting...","id": "Menghapus..."},
         "add": {"en": "Add","id": "Tambahkan"},
@@ -266,7 +274,8 @@
         ]
     },
     "video": {
-        "type_comment": {"en": "Type comment...", "id": "Ketik komentar..."}
+        "type_comment": {"en": "Type comment...", "id": "Ketik komentar..."},
+        "share_this_video": {"en": "Share This Video!", "id": "Bagikan Video Ini!"}
     },
     "explore": {
         "acccounts": {"en": "Accounts", "id": "Akun"},
@@ -277,6 +286,12 @@
         "initial_message": {
             "en": "Select conversation on the left side",
             "id": "Pilih percakapan di sebelah kiri"
-        }
+        },
+        "send_to": {"en": "Send Message to", "id": "Kirim Pesan ke"},
+        "message": {"en": "Message", "id": "Pesan"}
+    },
+    "skill_levels": {
+        "en": ["Junior", "Senior", "Master"],
+        "id": ["Pemula", "Menengah", "Mahir"]
     }
 }

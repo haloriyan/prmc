@@ -10,8 +10,8 @@ import ReactCountryFlag from "react-country-flag";
 
 const Login = () => {
     const [lang, setLang] = useLang();
-    const [email, setEmail] = useState('riyan.satria.619@gmail.com');
-    const [password, setPassword] = useState('inikatasandi');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [hidePassword, setHidePassword] = useState(true);
     const [errors, setErrors] = useState({
         password: '',email: '',message: ''

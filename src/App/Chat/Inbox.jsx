@@ -6,6 +6,10 @@ import { BiComment, BiUser, BiX } from "react-icons/bi";
 import moment from "moment";
 import useLang from "../../hooks/useLang";
 import translation from "../../translation.json";
+import { useSearchParams } from "react-router-dom";
+import Popup from "../../components/Popup";
+import Input from "../../components/Input";
+import InArray from "../../components/InArray";
 
 const Inbox = () => {
     const [lang, setLang] = useLang();
@@ -13,10 +17,33 @@ const Inbox = () => {
     const [user, setUser] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const [room, setRoom] = useState(null);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [newChat, setNewChat] = useState(searchParams.get('newChat'));
+    const [isLoadingUser, setLoadingUser] = useState(
+        newChat ? true : false
+    );
+    const [isComposing, setComposing] = useState(false);
 
     const [raw, setRaw] = useState(null);
     const [chats, setChats] = useState([]);
-    const [body, setBody] = useState('');
+    const [body, setBody] = useState(searchParams.get('message'));
+
+    useEffect(() => {
+        if (isLoadingUser) {
+            setLoadingUser(false);
+            axios.post(`${config.baseUrl}/api/user/${newChat}/profile`)
+            .then(response => {
+                let res = response.data;
+                setNewChat(res.user);
+                searchParams.delete('newChat');
+                setSearchParams(searchParams);
+                setComposing(true);
+                setRoom({
+                    user: res.user,
+                });
+            })
+        }
+    }, [isLoadingUser, newChat]);
 
     useEffect(() => {
         if (user === null) {
@@ -52,7 +79,33 @@ const Inbox = () => {
                     let res = response.data;
                     setRaw(res.chats);
                     let theChats = res.chats.data.reverse();
-                    setChats(theChats);
+                    let realChats = [];
+                    let d = [];
+                    let today = moment();
+
+                    theChats.map((ch, c) => {
+                        let thisYear = moment().format('Y') === moment(ch.created_at).format('Y');
+                        let chDt = moment(ch.created_at);
+                        let dateFormat = thisYear ? 'DD MMM' : 'DD MMM Y';
+                        let chDate = today.isSame(chDt, 'day') ?
+                            translation.general.today[lang]
+                        : today.isSame(chDt, 'day', 'subtract') ?
+                            translation.general.yesterday[lang]
+                        :   chDt.format(dateFormat);
+                        
+                        if (InArray(chDate, d)) {
+                            let dateIndex = d.indexOf(chDate);
+                            realChats[dateIndex].items.push(ch)
+                        } else {
+                            realChats.push({
+                                the_date: chDate,
+                                items: [ch]
+                            })
+                            d.push(chDate)
+                        }
+                    });
+
+                    setChats(realChats);
                 })
             }
         }, 1000);
@@ -73,6 +126,7 @@ const Inbox = () => {
         .then(response => {
             let res = response.data;
             setBody('');
+            setComposing(false);
         })
     }
 
@@ -87,7 +141,7 @@ const Inbox = () => {
                 </div>
             }
             {
-                room !== null &&
+                (room !== null && !isComposing) &&
                 <div className="fixed right-0 bottom-0 h-16 w-8/12 mobile:w-full flex items-center gap-4 border-t">
                     <form className="m-0 p-0 flex grow" onSubmit={send}>
                         <input type="text" value={body} className="flex grow h-16 px-8 outline-0" placeholder="Ketik pesan..." onInput={e => setBody(e.currentTarget.value)} />
@@ -96,15 +150,26 @@ const Inbox = () => {
             }
             <div className="fixed right-0 bottom-16 top-16 w-8/12 mobile:w-full overflow-y-scroll p-8 flex flex-col gap-4">
                 {
-                    chats.map((chat, c) => (
-                        <div key={c} className={`flex ${chat.sender_id === user.id ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`rounded-lg p-6 mobile:p-4 w-8/12 ${chat.sender_id === user.id ? 'bg-primary text-white' : 'bg-slate-100 text-slate-700'}`}>
-                                <div className="mobile:text-sm">{chat.body}</div>
-                                <div className="flex justify-end text-xs">
-                                    {moment(chat.created_at).format('HH:mm')}
+                    chats.map((ch, i) => (
+                        <>
+                            <div key={i} className="flex items-center justify-center">
+                                <div className="p-2 px-4 bg-slate-200 rounded-full text-xs">
+                                    {ch.the_date}
                                 </div>
                             </div>
-                        </div>
+                            {
+                                ch.items.map((chat, c) => (
+                                    <div key={c} className={`flex ${chat.sender_id === user.id ? 'justify-end' : 'justify-start'}`}>
+                                        <div className={`rounded-lg p-6 mobile:p-4 w-8/12 ${chat.sender_id === user.id ? 'bg-primary text-white' : 'bg-slate-100 text-slate-700'}`}>
+                                            <div className="mobile:text-sm">{chat.body}</div>
+                                            <div className="flex justify-end text-xs">
+                                                {moment(chat.created_at).format('HH:mm')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </>
                     ))
                 }
             </div>
@@ -164,6 +229,43 @@ const Inbox = () => {
                         ))
                     }
                 </div>
+            }
+
+            {
+                isComposing &&
+                <Popup onDismiss={() => setComposing(false)}>
+                    <div className="flex items-center gap-4 flex-wrap">
+                    {/* http://localhost:3000/inbox?newChat=Z2Qua3Jvbmlr */}
+                        {
+                            newChat.photo === null ?
+                            <div className="h-14 aspect-square rounded-full bg-slate-300 object-cover flex items-center justify-center">
+                                <BiUser size={24} color={config.primaryColor} />
+                            </div>
+                            :
+                            <img 
+                                src={`${config.baseUrl}/storage/user_photos/${newChat.photo}`} 
+                                alt={newChat.name} 
+                                className="h-14 aspect-square rounded-full bg-slate-300 object-cover" 
+                            />
+                        }
+                        <div className="flex flex-col grow">
+                            <div className="text-slate-500 text-sm">{translation.inbox.send_to[lang]}</div>
+                            <div className="text-slate-700 font-bold text-lg">{newChat.name}</div>
+                        </div>
+                        <div className="h-12 border text-slate-700 flex items-center justify-center aspect-square rounded-full cursor-pointer" onClick={() => setComposing(false)}>
+                            <BiX />
+                        </div>
+                    </div>
+
+                    <form className="mt-4" onSubmit={send}>
+                        <Input label={translation.inbox.message[lang]} value={body} onInput={e => setBody(e.currentTarget.value)} required multiline />
+                        <div className="flex items-center justify-end mt-4">
+                            <button className="bg-primary text-white p-2 px-4">
+                                {translation.general.send[lang]}
+                            </button>
+                        </div>
+                    </form>
+                </Popup>
             }
         </>
     )

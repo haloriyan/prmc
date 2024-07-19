@@ -10,7 +10,7 @@ import Dots from "../Partials/Dots";
 import config from "../config";
 import { MdEast } from "react-icons/md";
 
-const Home = () => {
+const HomePage = () => {
     const gPlayLink = "https://play.google.com/store/apps/details?id=com.promociin.app";
     const features = [
         {
@@ -213,4 +213,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomePage

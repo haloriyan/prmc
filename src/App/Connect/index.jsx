@@ -5,6 +5,7 @@ import axios from "axios";
 import config from "../../config";
 import { MdEast, MdWest } from "react-icons/md";
 import { BiComment, BiHeart, BiUser } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const Connect = () => {
     const [user, setUser] = useState(null);
@@ -12,6 +13,7 @@ const Connect = () => {
     const [isLoading, setLoading] = useState(true);
     const [triggerLoading, setTriggerLoading] = useState(true);
     const [index, setIndex] = useState(0);
+    const navigate = useNavigate();
 
     const [page, setPage] = useState(1);
     const [raw, setRaw] = useState(null);
@@ -118,7 +120,9 @@ const Connect = () => {
                                     <MdWest size={24} />
                                 </button>
                                 <div className="flex grow"></div>
-                                <button className="h-20 aspect-square rounded-full flex items-center justify-center bg-primary text-white">
+                                <button className="h-20 aspect-square rounded-full flex items-center justify-center bg-primary text-white" onClick={() => {
+                                    navigate(`/inbox?newChat=${btoa(users[index].username)}`)
+                                }}>
                                     <BiComment size={24} />
                                 </button>
                                 <div className="flex grow"></div>

@@ -3,10 +3,11 @@ import Header from "./components/Header";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
-import { BiPlay, BiSolidComment, BiSolidHeart, BiSolidShare, BiUser } from "react-icons/bi";
+import { BiLogoFacebook, BiLogoTwitter, BiLogoWhatsapp, BiPlay, BiShare, BiShareAlt, BiSolidComment, BiSolidHeart, BiSolidShare, BiUser, BiX } from "react-icons/bi";
 import moment from "moment";
 import useLang from "../hooks/useLang";
 import translation from "..//translation.json";
+import Popup from "../components/Popup";
 
 const Video = () => {
     const { id } = useParams();
@@ -16,7 +17,12 @@ const Video = () => {
     const [isLoadingComment, setLoadingComment] = useState(false);
     const [content, setContent] = useState(null);
     const [comments, setComments] = useState([]);
-    
+    const [commentsRaw, setCommentsRaw] = useState(null);
+    const [commentPage, setCommentPage] = useState(1);
+    const [isSharing, setSharing] = useState(false);
+
+    const shareLinkRef = useRef(null);
+    const copyLinkRef = useRef(null);
     const videoRef = useRef(null);
     const [isPaused, setPaused] = useState(false);
 
@@ -43,13 +49,18 @@ const Video = () => {
     useEffect(() => {
         if (isLoadingComment && content !== null) {
             setLoadingComment(false);
-            axios.post(`${config.baseUrl}/api/comment/${content.id}`)
+            axios.post(`${config.baseUrl}/api/comment/${content.id}?page=${commentPage}`)
             .then(response => {
                 let res = response.data;
-                setComments(res.comments);
+                let theComments = [...comments];
+                res.comments.data.map(com => {
+                    theComments.push(com);
+                })
+                setComments(theComments);
+                setCommentsRaw(res.comments);
 
                 let cont = {...content};
-                cont['comments_count'] = res.comments.length;
+                cont['comments_count'] = res.comment_count;
                 setContent(cont);
             })
         }
@@ -67,6 +78,14 @@ const Video = () => {
         })
     }
 
+    const copyShareLink = () => {
+        navigator.clipboard.writeText(`https://promociin.com/share/${content.id}`);
+        copyLinkRef.current.innerHTML = translation.general.copied[lang];
+        setTimeout(() => {
+            copyLinkRef.current.innerHTML = translation.general.copy[lang];
+        }, 3000);
+    }
+
     return (
         <>
             <Header />
@@ -74,8 +93,9 @@ const Video = () => {
                 content !== null &&
                 <div className="absolute top-16 left-0 right-0 bottom-0 flex mobile:flex-col ">
                     <div className="flex flex-col items-center basis-8/12 bg-slate-800 relative">
-                        <video src={`${config.baseUrl}/api/content/${id}/stream`} className="h-full" style={{
+                        <video src={`${config.baseUrl}/api/content/${id}/stream`} className="h-full bg-red-500" style={{
                             aspectRatio: 9/16,
+                            objectFit: 'cover'
                         }} autoPlay ref={videoRef}></video>
                         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center cursor-pointer" onClick={() => {
                             if (videoRef.current.paused) {
@@ -116,17 +136,17 @@ const Video = () => {
                         <div>{content.caption}</div>
 
                         <div className="flex gap-4 items-center">
-                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200">
+                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200 text-sm cursor-pointer">
                                 <BiSolidHeart />
                                 <div>{content.likes_count}</div>
                             </div>
-                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200">
+                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200 text-sm cursor-pointer">
                                 <BiSolidComment />
                                 <div>{content.comments_count}</div>
                             </div>
-                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200">
-                                <BiSolidHeart />
-                                <div>{content.dislikes_count}</div>
+                            <div className="flex gap-2 items-center justify-center h-10 rounded-lg grow bg-slate-200 text-sm cursor-pointer" onClick={() => setSharing(true)}>
+                                <BiShareAlt />
+                                <div>{translation.general.share[lang]}</div>
                             </div>
                         </div>
 
@@ -153,6 +173,15 @@ const Video = () => {
                                     </div>
                                 ))
                             }
+                            {
+                                commentsRaw?.next_page_url !== null &&
+                                <div className="cursor-pointer text-slate-500 text-right text-sm" onClick={() => {
+                                    setCommentPage(commentPage + 1);
+                                    setLoadingComment(true);
+                                }}>
+                                    {translation.general.more[lang]}
+                                </div>
+                            }
                         </div>
 
                         <div>
@@ -175,6 +204,45 @@ const Video = () => {
                         </div>
                     </div>
                 </div>
+            }
+
+            {
+                isSharing &&
+                <Popup onDismiss={() => setSharing(false)}>
+                    <div className="flex items-center gap-4">
+                        <div className="text-slate-700 font-bold text-lg flex grow">
+                            {translation.video.share_this_video[lang]}
+                        </div>
+                        <div className="h-12 rounded-full aspect-square border flex items-center justify-center cursor-pointer" onClick={() => setSharing(false)}>
+                            <BiX />
+                        </div>
+                    </div>
+
+                    <div className="mt-4 bg-slate-200 p-3 rounded-lg text-slate-700 flex items-center gap-4">
+                        <div className="flex grow" ref={shareLinkRef}>https://promociin.com/share/{content.id}</div>
+                        <button className="p-2 px-4 rounded-lg text-white bg-primary text-sm" ref={copyLinkRef} onClick={copyShareLink}>
+                            {translation.general.copy[lang]}
+                        </button>
+                    </div>
+
+                    <div className="flex items-center gap-2 mt-8">
+                        <Link target="_blank" to={`https://www.facebook.com/sharer/sharer.php?u=https://promociin.com/share/${content.id}`} className="h-12 aspect-square rounded-full flex items-center justify-center text-white text-lg" style={{
+                            backgroundColor: '#1877F2'
+                        }}>
+                            <BiLogoFacebook />
+                        </Link>
+                        <Link target="_blank" to={`https://wa.me/?text=https://promociin.com/share/${content.id}`} className="h-12 aspect-square rounded-full flex items-center justify-center text-white text-lg" style={{
+                            backgroundColor: '#25D366'
+                        }}>
+                            <BiLogoWhatsapp />
+                        </Link>
+                        <Link target="_blank" to={`https://x.com/intent/post?url=https://promociin.com/share/${content.id}&text=`} className="h-12 aspect-square rounded-full flex items-center justify-center bg-white border text-lg" style={{
+                            backgroundColor: '#000'
+                        }}>
+                            <img src={'/images/x-white.png'} className="h-4" />
+                        </Link>
+                    </div>
+                </Popup>
             }
         </>
     )

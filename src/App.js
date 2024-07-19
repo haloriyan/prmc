@@ -1,12 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserMiddleware from "./Middleware/User";
-import PageRouter from "./Pages";
 import AdminRouter from "./Admin";
 import './App.css';
 import TCRouter from "./TrainingCenter";
-import AuthRouter from "./App/Auth";
-import HomeRouter from "./App/Home";
 import PublicProfile from "./App/PublicProfile";
 import Home from "./App/Home/Home";
 import Video from "./App/Video";
@@ -26,6 +23,13 @@ import Profile from "./App/Profile";
 import GigsAdd from "./App/Gigs/Add";
 import GigsEdit from "./App/Gigs/Edit";
 import VacancyAdd from "./App/JobFair/Add";
+import Settings from "./App/Settings";
+import Privacy from "./Pages/Privacy";
+import Faq from "./Pages/FAQ";
+import Contact from "./Pages/Contact";
+import DeleteAccount from "./Pages/DeleteAccount";
+import Share from "./Pages/Share";
+import HomePage from "./Pages/Home";
 
 export default function App() {
 	return (
@@ -33,9 +37,15 @@ export default function App() {
 			<AdminRouter />
 			<TCRouter />
 
-			<PageRouter />
-
 			<Routes>
+				{/* PAGES */}
+				<Route path="/" element={<HomePage />} />
+				<Route path="/privacy" element={<Privacy />} />
+				<Route path="/faq" element={<Faq />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/delete-account" element={<DeleteAccount />} />
+				<Route path="/share/:id" element={<Share />} />
+
 				<Route path="/home" element={<UserMiddleware><Home /></UserMiddleware>} />
 				<Route path="/inbox" element={<UserMiddleware><Inbox /></UserMiddleware>} />
 				<Route path="/upload" element={<UserMiddleware><Upload /></UserMiddleware>} />
@@ -44,6 +54,7 @@ export default function App() {
 				<Route path="/connect" element={<UserMiddleware><Connect /></UserMiddleware>} />
 				<Route path="/gigs" element={<UserMiddleware><Gigs /></UserMiddleware>} />
 				<Route path="/profile" element={<UserMiddleware><Profile /></UserMiddleware>} />
+				<Route path="/settings" element={<UserMiddleware><Settings /></UserMiddleware>} />
 
 				<Route path="/video/:id" element={<Video />} />
 				

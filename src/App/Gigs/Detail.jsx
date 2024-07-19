@@ -137,12 +137,14 @@ const GigsDetail = () => {
                                         {
                                             gig.phone &&
                                             <button className="p-2 px-4 text-primary border-primary border text-sm" onClick={() => {
-                                                window.open(`https://wa.me/${gig.phone}?text=`, '_blank')
+                                                window.open(`https://wa.me/${gig.phone}?text=${translation.services.template[lang]} ${pak.name} ${translation.services.from[lang]} ${gig.title}`, '_blank')
                                             }}>
                                                 Whatsapp
                                             </button>
                                         }
-                                        <button className="p-2 px-4 text-white bg-primary border border-primary text-sm">
+                                        <button className="p-2 px-4 text-white bg-primary border border-primary text-sm" onClick={() => {
+                                            navigate(`/inbox?newChat=${btoa(gig.user.username)}&message=${translation.services.template[lang]} ${pak.name} ${translation.services.from[lang]} ${gig.title}`)
+                                        }}>
                                             {translation.general.contact[lang]}
                                         </button>
                                     </div>

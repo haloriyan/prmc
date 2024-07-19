@@ -3,7 +3,7 @@ import config from "../../config";
 import { BiSolidComment, BiSolidHeart, BiSolidShare, BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const VideoContent = ({cont}) => {
+const VideoContent = ({cont, setContent, setShowComment, setLoadingComments, setComments, setCommentPage, setSharing}) => {
     const videoRef = useRef();
 
     return (
@@ -31,10 +31,19 @@ const VideoContent = ({cont}) => {
                 <button className="aspect-square h-12 rounded-full bg-slate-200 flex items-center justify-center">
                     <BiSolidHeart />
                 </button>
-                <button className="aspect-square h-12 rounded-full bg-slate-200 flex items-center justify-center">
+                <button className="aspect-square h-12 rounded-full bg-slate-200 flex items-center justify-center" onClick={() => {
+                    setContent(cont);
+                    setComments([]);
+                    setShowComment(true);
+                    setLoadingComments(true);
+                    setCommentPage(1);
+                }}>
                     <BiSolidComment />
                 </button>
-                <button className="aspect-square h-12 rounded-full bg-slate-200 flex items-center justify-center">
+                <button className="aspect-square h-12 rounded-full bg-slate-200 flex items-center justify-center" onClick={() => {
+                    setContent(cont);
+                    setSharing(true);
+                }}>
                     <BiSolidShare />
                 </button>
             </div>

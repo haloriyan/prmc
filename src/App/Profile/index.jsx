@@ -10,6 +10,7 @@ import RenderProfileContent from "./RenderProfileContent";
 import RenderProfileInfo from "./RenderProfileInfo";
 import RenderProfileGigs from "./RenderProfileGigs";
 import Popup from "../../components/Popup";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
     const [lang, setLang] = useLang();
@@ -60,9 +61,9 @@ const Profile = () => {
                         <div className="flex flex-col gap-2 mobile:gap-0">
                             <div className="text-3xl mobile:text-lg font-black text-slate-700">{profile.name}</div>
                             <div className="mobile:text-sm text-slate-500">@{profile.username}</div>
-                            <button className="p-2 px-8 bg-primary text-white mt-4 mobile:text-sm">
-                                Button
-                            </button>
+                            <Link to={'/settings'} className="p-2 px-8 bg-primary text-white flex items-center justify-center mt-4 mobile:text-sm">
+                                {translation.profile.settings[lang]}
+                            </Link>
                         </div>
                         <div className="flex items-center justify-end grow pe-8 mobile:pe-4 gap-4 mobile:gap-2">
                             {
