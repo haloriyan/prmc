@@ -30,6 +30,7 @@ import Contact from "./Pages/Contact";
 import DeleteAccount from "./Pages/DeleteAccount";
 import Share from "./Pages/Share";
 import HomePage from "./Pages/Home";
+import RequestLiveAccess from "./Pages/RequestLiveAccess";
 
 export default function App() {
 	return (
@@ -45,6 +46,7 @@ export default function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/delete-account" element={<DeleteAccount />} />
 				<Route path="/share/:id" element={<Share />} />
+				<Route path="/request-live-access/:token" element={<RequestLiveAccess />} />
 
 				<Route path="/home" element={<UserMiddleware><Home /></UserMiddleware>} />
 				<Route path="/inbox" element={<UserMiddleware><Inbox /></UserMiddleware>} />

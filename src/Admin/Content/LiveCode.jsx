@@ -10,6 +10,7 @@ import Popup from "../../components/Popup";
 import Input from "../../components/Input";
 import { useDebouncedCallback } from "use-debounce";
 import styles from "../styles/LiveCode.module.css";
+import { Link } from "react-router-dom";
 
 const LiveCode = () => {
     const [isLoading, setLoading] = useState(true);
@@ -107,6 +108,11 @@ const LiveCode = () => {
             <div className="content user">
                 <TitleAdmin 
                     title="Kode Live Streaming"
+                    description={
+                        <Link to={'/admin/content/live-code-request'} className="text-primary text-sm">
+                        Lihat Permintaan Kode Akses
+                        </Link>
+                    }
                     right={
                         <Button onClick={() => setAdding(true)}>Tambah</Button>
                     }

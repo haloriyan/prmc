@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { BiPaperPlane, BiSearch, BiSolidInbox, BiUser } from "react-icons/bi";
 import config from "../../config";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 const Header = () => {
     const isMobile = window.screen.width <= 480;
     const [searchParams, setSearchParams] = useSearchParams();
     const [q, setQ] = useState(searchParams.get('q'));
     const url = new URL(document.URL);
+    const navigate = useNavigate();
 
     return (
         <div className="fixed top-0 left-0 right-0 h-16 border-b bg-white flex items-center justify-center px-8 z-30">
@@ -16,7 +17,12 @@ const Header = () => {
                 {!isMobile && <div className="font-bold text-slate-700">Promociin</div>}
             </Link>
             {!isMobile &&
-                <div className="w-4/12 bg-gray-200 rounded-full h-12 flex items-center px-4">
+                <div className="w-4/12 bg-gray-200 rounded-full h-12 flex items-center px-4 cursor-pointer" onClick={() => {
+                    let u = new URL(document.URL);
+                    if (u.pathname !== "/explore") {
+                        navigate('/explore');
+                    }
+                }}>
                     <input type="text" placeholder="Cari" className="flex bg-gray-200 grow outline-0" value={searchParams.get('q')} onInput={e => {
                         // searchParams.set('q', e.currentTarget.value);
                         setSearchParams({

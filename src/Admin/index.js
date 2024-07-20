@@ -13,6 +13,7 @@ import Announcement from "./Master/Announcement";
 import LiveCode from "./Content/LiveCode";
 import TrainingCenter from "./Content/TrainingCenter";
 import Stream from "./Master/Stream";
+import LiveCodeRequest from "./Content/LiveCodeRequest";
 
 const AdminRouter = () => {
     return (
@@ -28,6 +29,7 @@ const AdminRouter = () => {
             <Route path="/admin/content/report" element={<AdminMiddleware><ContentReport /></AdminMiddleware>} />
             <Route path="/admin/content/training-center" element={<AdminMiddleware><TrainingCenter /></AdminMiddleware>} />
             <Route path="/admin/content/live-code" element={<AdminMiddleware><LiveCode /></AdminMiddleware>} />
+            <Route path="/admin/content/live-code-request" element={<AdminMiddleware><LiveCodeRequest /></AdminMiddleware>} />
 
             <Route path="/admin/ad/campaign" element={<AdminMiddleware><Campaign /></AdminMiddleware>} />
             <Route path="/admin/ad/campaign/:id/detail" element={<AdminMiddleware><CampaignDetail /></AdminMiddleware>} />

@@ -215,7 +215,16 @@
         "sending_link": {"en": "Sending link...", "id": "Mengirim link..."}
     },
     "live_auth": {
-        "intro": {"en": "Enter your authorization code before starting live stream", "id": "Masukkan kode otorisasi sebelum memulai live streaming"}
+        "intro": {"en": "Enter your authorization code before starting live stream", "id": "Masukkan kode otorisasi sebelum memulai live streaming"},
+        "request_access": {"en": "Request Code", "id": "Dapatkan Kode"},
+        "request_access_description": {
+            "en": "Access code will be shown after input box when you asked for access code",
+            "id": "Kode akses akan muncul di bawah kotak ketika Anda diminta memasukkan kode akses"
+        },
+        "request_access_success": {
+            "en": "Access code requested",
+            "id": "Berhasil meminta kode access"
+        }
     },
     "intro": [
         {
