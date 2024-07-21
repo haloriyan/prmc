@@ -224,6 +224,10 @@
         "request_access_success": {
             "en": "Access code requested",
             "id": "Berhasil meminta kode access"
+        },
+        "purpose_label": {
+            "en": "Tell Us What well be in your Live Stream?",
+            "id": "Jelaskan Tujuan Live Stream Anda"
         }
     },
     "intro": [

@@ -17,10 +17,11 @@ const LiveCodeRequest = () => {
             axios.post(`${config.baseUrl}/api/stream/code/access-request`)
             .then(response => {
                 let res = response.data;
+                console.log(res);
                 setDatas(res.datas);
             })
         }
-    }, []);
+    }, [isLoading]);
 
     const allowAccess = (id) => {
         axios.post(`${config.baseUrl}/api/stream/code/access-request-allow`, {
@@ -29,6 +30,7 @@ const LiveCodeRequest = () => {
         .then(response => {
             let res = response.data;
             setLoading(true);
+            console.log('success');
         })
     }
 
@@ -48,6 +50,7 @@ const LiveCodeRequest = () => {
                     <thead>
                         <tr>
                             <th>User</th>
+                            <th>Tujuan</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -56,6 +59,7 @@ const LiveCodeRequest = () => {
                             datas.map((data, d) => (
                                 <tr key={d}>
                                     <td>{data.user.name}</td>
+                                    <td>{data.purpose}</td>
                                     <td>
                                         <button className="bg-green-500 text-white text-sm p-2 px-4" onClick={() => allowAccess(data.id)}>
                                             Izinkan

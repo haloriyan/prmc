@@ -5,6 +5,7 @@ import config from "../config";
 import { BiCheck, BiUser } from "react-icons/bi";
 import useLang from "../hooks/useLang";
 import translation from "../translation.json";
+import Input from "../components/Input";
 
 const RequestLiveAccess = () => {
     const { token } = useParams();
@@ -14,6 +15,8 @@ const RequestLiveAccess = () => {
     const [isLoading, setLoading] = useState(true);
     const [triggerLoading, setTriggerLoading] = useState(true);
     const [isSuccess, setSuccess] = useState(false);
+
+    const [purpose, setPurpose] = useState('');
 
     useEffect(() => {
         if (isLoading) {
@@ -30,12 +33,14 @@ const RequestLiveAccess = () => {
     }, [isLoading]);
 
     const submit = () => {
-        axios.post(`${config.baseUrl}/api/user/request-live-access`, {
-            token: token,
-        })
-        .then(response => {
-            setSuccess(true);
-        })
+        if (purpose !== "") {
+            axios.post(`${config.baseUrl}/api/user/request-live-access`, {
+                token: token,
+            })
+            .then(response => {
+                setSuccess(true);
+            })
+        }
     }
 
     return (
@@ -80,7 +85,10 @@ const RequestLiveAccess = () => {
                 <>
                 {
                     !isSuccess ?
-                    <div className="flex justify-center mt-8">
+                    <div className="flex justify-center flex-wrap mt-8">
+                        <div className="w-full lfex grow p-4">
+                            <Input label={translation.live_auth.purpose_label[lang]} value={purpose} onInput={e => setPurpose(e.currentTarget.value)} multiline />
+                        </div>
                         <button className="bg-primary text-white p-3 px-6 text-sm" onClick={() => {
                             submit();
                         }}>
